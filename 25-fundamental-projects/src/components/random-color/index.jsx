@@ -18,7 +18,13 @@ const RandomColor = () => {
 
     setColor(hexColor);
   }
-  function handleCreateRandomRgbColor() {}
+  function handleCreateRandomRgbColor() {
+    const r = randomColorUtility(256);
+    const g = randomColorUtility(256);
+    const b = randomColorUtility(256);
+
+    setColor(`rgb${r},${g},${b}`);
+  }
 
   return (
     <div
@@ -39,6 +45,19 @@ const RandomColor = () => {
       >
         Generate Random Color
       </button>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          color: "white",
+          fontSize: "60px",
+          marginTop: "50px",
+        }}
+      >
+        <h3>{typeOfColor === "rgb" ? "RGB Color" : "Hex Color"}</h3>
+        <h1>{color}</h1>
+      </div>
     </div>
   );
 };
